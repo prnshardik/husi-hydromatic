@@ -31,5 +31,5 @@ Route::group(['middleware' => ['prevent-back-history'], 'prefix' => 'admin', 'na
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     });
 
-    Route::get("admin/{path}", function(){ return redirect()->route('login'); })->where('path', '.+');
+    Route::get("{path}", function(){ return redirect()->route('admin.login'); })->where('path', '.+');
 });
