@@ -14,6 +14,10 @@ Route::get('key-generate', function() {
     return "Key Generate Successfully";
 });
 
+Route::group(['namespace' => 'Front'], function(){
+    Route::get('/', 'RootController@index')->name('home');
+});
+
 Route::group(['middleware' => ['prevent-back-history'], 'prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function(){
     Route::group(['middleware' => ['guest:admin']], function () {
         Route::get('/', 'AuthController@login')->name('login');
