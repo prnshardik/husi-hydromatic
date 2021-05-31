@@ -10,4 +10,10 @@
             return 'KH';
         }
     }
+
+    if(!function_exists('_mail_from')){
+        function _mail_from(){
+            return 'info@khusihydromatic.com';
+        }
+    }  
 ?>
