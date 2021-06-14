@@ -19,6 +19,11 @@ Route::get('migrate', function() {
     return "Database migration generated";
 });
 
+Route::get('db', function() {
+    Artisan::call('db:seed');
+    return "Database seeded successfully";
+});
+
 Route::group(['namespace' => 'Front'], function(){
     Route::get('/', 'RootController@index')->name('home');
     Route::get('/product/{id?}', 'RootController@product')->name('product');
