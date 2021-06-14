@@ -1,5 +1,9 @@
 @extends('front.layout.app')
 
+@section('title')
+    {{ _site_title() }}
+@endsection
+
 @section('meta')
 @endsection
 

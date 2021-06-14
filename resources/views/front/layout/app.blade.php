@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{{ _site_title() }}</title>
+    <title>@yield('title')</title>
 
     @include('front.layout.meta')
 

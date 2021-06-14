@@ -9,4 +9,8 @@
         public function index(){
             return view('front.index');
         }
+
+        public function product($id = ''){
+            return view('front.product');
+        }
     }

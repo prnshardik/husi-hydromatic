@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('command', function() {
+Route::get('clear', function() {
     Artisan::call('cache:clear');
     Artisan::call('optimize:clear');
     Artisan::call('config:cache');
@@ -14,8 +14,14 @@ Route::get('key-generate', function() {
     return "Key Generate Successfully";
 });
 
+Route::get('migrate', function() {
+    Artisan::call('migrate:refresh');
+    return "Database migration generated";
+});
+
 Route::group(['namespace' => 'Front'], function(){
     Route::get('/', 'RootController@index')->name('home');
+    Route::get('/product/{id?}', 'RootController@product')->name('product');
 });
 
 Route::group(['middleware' => ['prevent-back-history'], 'prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function(){
