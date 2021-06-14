@@ -16,11 +16,11 @@
                         <h4 style="font-size: 24px;">{{ _site_title() }} <img src="{{ asset('frontend/assets/images/logo-icon.png') }}" alt=""></h4>
                     </a>
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                        <li class="scroll-to-section"><a href="#products">Products</a></li>
-                        <li class="scroll-to-section"><a href="#about">About Us</a></li>
-                        <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
-                        <li class="scroll-to-section"><div class="main-blue-button"><a href="#contact">Get Your Quote</a></div></li> 
+                        <li class="scroll-to-section"><a href="{{route('home')}}/#top" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="{{route('home')}}#products">Products</a></li>
+                        <li class="scroll-to-section"><a href="{{route('home')}}#about">About Us</a></li>
+                        <li class="scroll-to-section"><a href="{{route('home')}}#contact">Contact Us</a></li> 
+                        <li class="scroll-to-section"><div class="main-blue-button"><a href="{{route('home')}}#contact">Get Your Quote</a></div></li> 
                     </ul>        
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -79,53 +79,13 @@
     </div>
 </div>
 
-<div id="about" class="about-us section">
-    <div class="container">
-    <div class="row">
-        <div class="col-lg-6">
-        <div class="left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-            <img src="{{ asset('frontend/assets/images/about-left-image.png') }}" alt="">
-        </div>
-        </div>
-        <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-        <div class="section-heading">
-            <h6>About Us</h6>
-            <h2>Top <em>marketing</em> agency &amp; consult your website <span>with us</span></h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-sm-4">
-            <div class="about-item">
-                <h4>750+</h4>
-                <h6>projects finished</h6>
-            </div>
-            </div>
-            <div class="col-lg-4 col-sm-4">
-            <div class="about-item">
-                <h4>340+</h4>
-                <h6>happy clients</h6>
-            </div>
-            </div>
-            <div class="col-lg-4 col-sm-4">
-            <div class="about-item">
-                <h4>128+</h4>
-                <h6>awards</h6>
-            </div>
-            </div>
-        </div>
-        <p><a rel="nofollow" href="https://templatemo.com/tm-563-seo-dream" target="_parent">SEO Dream</a> is free digital marketing CSS template provided by TemplateMo website. You are allowed to use this template for your business websites. Please DO NOT redistribute this template ZIP file on any Free CSS collection websites. You may contact us for more information. Thank you.</p>
-        <div class="main-green-button"><a href="#">Discover company</a></div>
-        </div>
-    </div>
-    </div>
-</div>
-
 <div id="products" class="our-portfolio section">
     <div class="container">
     <div class="row">
         <div class="col-lg-5">
         <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
-            <h6>Our Portofolio</h6>
-            <h2>Discover Our Recent <em>Projects</em> And <span>Showcases</span></h2>
+            <h6>Our Products</h6>
+            <h2>Discover Our <em>Products</em> And <span>Showcases</span></h2>
         </div>
         </div>
     </div>
@@ -231,6 +191,46 @@
             </div>
             </div>
         </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div id="about" class="about-us section">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+        <div class="left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+            <img src="{{ asset('frontend/assets/images/about-left-image.png') }}" alt="">
+        </div>
+        </div>
+        <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+        <div class="section-heading">
+            <h6>About Us</h6>
+            <h2>Top <em>marketing</em> agency &amp; consult your website <span>with us</span></h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-4">
+            <div class="about-item">
+                <h4>750+</h4>
+                <h6>projects finished</h6>
+            </div>
+            </div>
+            <div class="col-lg-4 col-sm-4">
+            <div class="about-item">
+                <h4>340+</h4>
+                <h6>happy clients</h6>
+            </div>
+            </div>
+            <div class="col-lg-4 col-sm-4">
+            <div class="about-item">
+                <h4>128+</h4>
+                <h6>awards</h6>
+            </div>
+            </div>
+        </div>
+        <p><a rel="nofollow" href="https://templatemo.com/tm-563-seo-dream" target="_parent">SEO Dream</a> is free digital marketing CSS template provided by TemplateMo website. You are allowed to use this template for your business websites. Please DO NOT redistribute this template ZIP file on any Free CSS collection websites. You may contact us for more information. Thank you.</p>
+        <div class="main-green-button"><a href="#">Discover company</a></div>
         </div>
     </div>
     </div>
