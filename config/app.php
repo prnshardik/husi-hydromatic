@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'khushi Hydromatic'),
 
     /*
     |--------------------------------------------------------------------------
@@ -119,7 +119,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY','base64:Rr+O9Afn7eoA9sG/sNKtA8pho6Tctk3pgk4Xun4C8YE='),
 
     'cipher' => 'AES-256-CBC',
 

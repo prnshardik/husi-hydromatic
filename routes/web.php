@@ -27,12 +27,24 @@ Route::group(['middleware' => ['prevent-back-history'], 'prefix' => 'admin', 'na
         Route::post('password-forget', 'AuthController@password_forget')->name('password.forget');
         Route::get('reset-password/{string}', 'AuthController@reset_password')->name('reset.password');
         Route::post('recover-password', 'AuthController@recover_password')->name('recover.password');
+        
     });
 
     Route::group(['middleware' => ['auth:admin']], function () {
         Route::get('logout', 'AuthController@logout')->name('logout');
 
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+        /** Products */ 
+            Route::any('products', 'ProductController@index')->name('products');
+            Route::get('products-create', 'ProductController@create')->name('product.create');
+            Route::post('products-insert', 'ProductController@insert')->name('product.insert');
+            Route::get('products-view', 'ProductController@view')->name('product.view');
+            Route::get('products-edit', 'ProductController@edit')->name('product.edit');
+            Route::PATCH('products-update', 'ProductController@update')->name('product.update');
+            Route::post('products-change_status', 'ProductController@change_status')->name('product.change_status');
+            Route::get('product-remove_image', 'ProductController@remove_image')->name('product.remove_image');
+        /** Products */ 
     });
 
     Route::get("{path}", function(){ return redirect()->route('admin.login'); })->where('path', '.+');
