@@ -104,7 +104,7 @@
                 <img src="{{ asset('frontend/assets/images/portfolio-01.jpg') }}" alt="">
                 <div class="hover-content">
                     <div class="inner-content">
-                    <a href="#"><h4>Awesome Project 101</h4></a>
+                    <a href="{{ route('product') }}"><h4>Awesome Project 101</h4></a>
                     <span>Marketing</span>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                 <img src="{{ asset('frontend/assets/images/portfolio-04.jpg') }}" alt="">
                 <div class="hover-content">
                     <div class="inner-content">
-                    <a href="#"><h4>Awesome Project 102</h4></a>
+                    <a href="{{ route('product') }}"><h4>Awesome Project 102</h4></a>
                     <span>Branding</span>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                 <img src="{{ asset('frontend/assets/images/portfolio-02.jpg') }}" alt="">
                 <div class="hover-content">
                     <div class="inner-content">
-                    <a href="#"><h4>Awesome Project 103</h4></a>
+                    <a href="{{ route('product') }}"><h4>Awesome Project 103</h4></a>
                     <span>Consulting</span>
                     </div>
                 </div>
@@ -139,7 +139,7 @@
                 <img src="{{ asset('frontend/assets/images/portfolio-05.jpg') }}" alt="">
                 <div class="hover-content">
                     <div class="inner-content">
-                    <a href="#"><h4>Awesome Project 104</h4></a>
+                    <a href="{{ route('product') }}"><h4>Awesome Project 104</h4></a>
                     <span>Artwork</span>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                 <img src="{{ asset('frontend/assets/images/portfolio-03.jpg') }}" alt="">
                 <div class="hover-content">
                     <div class="inner-content">
-                    <a href="#"><h4>Awesome Project 105</h4></a>
+                    <a href="{{ route('product') }}"><h4>Awesome Project 105</h4></a>
                     <span>Branding</span>
                     </div>
                 </div>
@@ -163,7 +163,7 @@
                 <img src="{{ asset('frontend/assets/images/portfolio-06.jpg') }}" alt="">
                 <div class="hover-content">
                     <div class="inner-content">
-                    <a href="#"><h4>Awesome Project 106</h4></a>
+                    <a href="{{ route('product') }}"><h4>Awesome Project 106</h4></a>
                     <span>Artwork</span>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
                 <img src="{{ asset('frontend/assets/images/portfolio-04.jpg') }}" alt="">
                 <div class="hover-content">
                     <div class="inner-content">
-                    <a href="#"><h4>Awesome Project 107</h4></a>
+                    <a href="{{ route('product') }}"><h4>Awesome Project 107</h4></a>
                     <span>Creative</span>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
                 <img src="{{ asset('frontend/assets/images/portfolio-01.jpg') }}" alt="">
                 <div class="hover-content">
                     <div class="inner-content">
-                    <a href="#"><h4>Awesome Project 108</h4></a>
+                    <a href="{{ route('product') }}"><h4>Awesome Project 108</h4></a>
                     <span>Consulting</span>
                     </div>
                 </div>
