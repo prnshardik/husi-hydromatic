@@ -11,28 +11,30 @@
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Categories
-                        <a class="btn btn-primary btn-sm pull-right ml-2" style="margin-top: 8px;margin-bottom: 5px" href="{{ route('admin.categories.create') }}">Add New</a>
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <div class="toolbar"></div>
-                    <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
-                        <table id="data-table" class="table table-striped table-responsive table-bordered dataTable dtr-inline" cellspacing="0" width="100%" role="grid" style="width: 100%;">
-                            <thead>
-                                <tr role="row">
-                                    <th style="width:5%">No</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                        </table>
+    <div class="page-content fade-in-up">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Categories
+                            <a class="btn btn-primary btn-sm pull-right ml-2" style="margin-top: 8px;margin-bottom: 5px" href="{{ route('admin.categories.create') }}">Add New</a>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="toolbar"></div>
+                        <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                            <table id="data-table" class="table table-striped table-responsive table-bordered dataTable dtr-inline" cellspacing="0" width="100%" role="grid" style="width: 100%;">
+                                <thead>
+                                    <tr role="row">
+                                        <th style="width:5%">No</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

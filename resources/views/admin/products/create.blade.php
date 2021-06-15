@@ -13,51 +13,53 @@
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card ">
-                <div class="card-header ">
-                    <h4 class="card-title">Create Product</h4>
-                </div>
-                <div class="card-body ">
-                    <form name="form" action="{{ route('admin.product.insert') }}" id="form" method="post" enctype="multipart/form-data">
-                        @csrf
-                        
-                        <div class="row">
-                            <div class="form-group col-sm-12">
-                                <label for="category_id">Category <span class="text-danger">*</span></label>
-                                <select name="category_id" id="category_id" class="form-control">
-                                    <option value="" hidden>Select category</option>
-                                    @if($categories->isNotEmpty())
-                                        @foreach($categories as $row)
-                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                                <span class="kt-form__help error category_id"></span>
+    <div class="page-content fade-in-up">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Create Product</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form name="form" action="{{ route('admin.product.insert') }}" id="form" method="post" enctype="multipart/form-data">
+                            @csrf
+                            
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <label for="category_id">Category <span class="text-danger">*</span></label>
+                                    <select name="category_id" id="category_id" class="form-control">
+                                        <option value="" hidden>Select category</option>
+                                        @if($categories->isNotEmpty())
+                                            @foreach($categories as $row)
+                                                <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                    <span class="kt-form__help error category_id"></span>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label for="name">Name <span class="text-danger">*</span></label>
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Plese enter name" value="{{ @old('name') }}"/>
+                                    <span class="kt-form__help error name"></span>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label for="description">Description <span class="text-danger"></span></label>
+                                    <textarea name="description" id="description" class="form-control" placeholder="Plese enter description" cols="3" rows="5">{{ @old('description') }}</textarea>
+                                    <span class="kt-form__help error description"></span>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label for="image">Image</label>
+                                    <input type="file" class=" dropify" id="image" name="image"  data-allowed-file-extensions="jpg png jpeg" data-max-file-size-preview="20M" data-show-remove="true">
+                                    <span class="kt-form__help error image"></span>
+                                </div>
                             </div>
-                            <div class="form-group col-sm-12">
-                                <label for="name">Name <span class="text-danger">*</span></label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Plese enter name" value="{{ @old('name') }}"/>
-                                <span class="kt-form__help error name"></span>
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label for="description">Description <span class="text-danger"></span></label>
-                                <textarea name="description" id="description" class="form-control" placeholder="Plese enter description" cols="3" rows="5">{{ @old('description') }}</textarea>
-                                <span class="kt-form__help error description"></span>
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label for="image">Image</label>
-                                <input type="file" class=" dropify" id="image" name="image"  data-allowed-file-extensions="jpg png jpeg" data-max-file-size-preview="20M" data-show-remove="true">
-                                <span class="kt-form__help error image"></span>
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <a href="{{ route('admin.products') }}" class="btn btn-default">Back</a>
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <a href="{{ route('admin.products') }}" class="btn btn-default">Back</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

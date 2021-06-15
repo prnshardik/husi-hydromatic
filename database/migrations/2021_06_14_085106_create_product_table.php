@@ -27,8 +27,8 @@ class CreateProductTable extends Migration
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
 
-            if(file_exists(public_path('/backend/dummy/product/default.png')) && !file_exists(public_path('/backend/dummy/product/default.png')) ){
-                File::copy(public_path('/backend/dummy/product/default.png'), public_path('/uploads/products/default.png'));
+            if(file_exists(public_path('/backend/dummy/products/default.png')) && !file_exists(public_path('/uploads/products/default.png')) ){
+                File::copy(public_path('/backend/dummy/products/default.png'), public_path('/uploads/products/default.png'));
             }
         });
     }

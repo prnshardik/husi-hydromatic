@@ -34,7 +34,7 @@
                         <div class="tab-pane @if($tab == 'general') active show @else fade @endif" id="general" aria-expanded="true">
                             <div class="row m-2">
                                 <div class="col-sm-12">
-                                    <form action="{{ route('back.settings.update') }}" method="post">
+                                    <form action="{{ route('admin.settings.update') }}" method="post">
                                         @method('post')
                                         @csrf
                                         <input type="hidden" name="tab" value="general">

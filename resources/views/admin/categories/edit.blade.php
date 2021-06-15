@@ -11,36 +11,38 @@
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card ">
-                <div class="card-header ">
-                    <h4 class="card-title">Edit Category</h4>
-                </div>
-                <div class="card-body ">
-                    <form name="form" action="{{ route('admin.categories.update') }}" id="form" method="post" enctype="multipart/form-data">
-                        @csrf
-                        @method('PATCH')
+    <div class="page-content fade-in-up">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Edit Category</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form name="form" action="{{ route('admin.categories.update') }}" id="form" method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
 
-                        <input type="hidden" name="id" value="{{ $data->id }}">
-                        
-                        <div class="row">
-                            <div class="form-group col-sm-12">
-                                <label for="name">Name <span class="text-danger">*</span></label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Plese enter name" value="{{ @old('name', $data->name) }}"/>
-                                <span class="kt-form__help error name"></span>
+                            <input type="hidden" name="id" value="{{ $data->id }}">
+                            
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <label for="name">Name <span class="text-danger">*</span></label>
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Plese enter name" value="{{ @old('name', $data->name) }}"/>
+                                    <span class="kt-form__help error name"></span>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label for="description">Description <span class="text-danger"></span></label>
+                                    <textarea name="description" id="description" class="form-control" placeholder="Plese enter description" cols="3" rows="5">{{ @old('description', $data->description) }}</textarea>
+                                    <span class="kt-form__help error description"></span>
+                                </div>
                             </div>
-                            <div class="form-group col-sm-12">
-                                <label for="description">Description <span class="text-danger"></span></label>
-                                <textarea name="description" id="description" class="form-control" placeholder="Plese enter description" cols="3" rows="5">{{ @old('description', $data->description) }}</textarea>
-                                <span class="kt-form__help error description"></span>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <a href="{{ route('admin.categories') }}" class="btn btn-default">Back</a>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <a href="{{ route('admin.categories') }}" class="btn btn-default">Back</a>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
