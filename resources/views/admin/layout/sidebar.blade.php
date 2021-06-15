@@ -22,13 +22,18 @@
                 </a>
             </li>
             <li class="{{ Request::is('admin/categories*') ? 'active' : '' }}">
-                <a class="{{ Request::is('admin/categories*') ? 'active' : '' }}" href="{{ route('admin.categories') }}"><i class="sidebar-item-icon fa fa-th-large"></i>
+                <a class="{{ Request::is('admin/categories*') ? 'active' : '' }}" href="{{ route('admin.categories') }}"><i class="sidebar-item-icon fa fa-bars"></i>
                     <span class="nav-label">Categories</span>
                 </a>
             </li>
             <li class="{{ Request::is('admin/products*') ? 'active' : '' }}">
-                <a class="{{ Request::is('admin/products*') ? 'active' : '' }}" href="{{ route('admin.products') }}"><i class="sidebar-item-icon fa fa-th-large"></i>
+                <a class="{{ Request::is('admin/products*') ? 'active' : '' }}" href="{{ route('admin.products') }}"><i class="sidebar-item-icon fa fa-tasks"></i>
                     <span class="nav-label">Products</span>
+                </a>
+            </li>
+            <li class="{{ Request::is('admin/settings*') ? 'active' : '' }}">
+                <a class="{{ Request::is('admin/settings*') ? 'active' : '' }}" href="{{ route('admin.settings') }}"><i class="sidebar-item-icon fa fa-cogs"></i>
+                    <span class="nav-label">Settings</span>
                 </a>
             </li>
         </ul>

@@ -65,7 +65,12 @@ Route::group(['middleware' => ['prevent-back-history'], 'prefix' => 'admin', 'na
             Route::patch('products/update', 'ProductController@update')->name('product.update');
             Route::post('products/change-status', 'ProductController@change_status')->name('product.change.status');
             Route::post('product/remove-image', 'ProductController@remove_image')->name('product.remove.image');
-        /** products */ 
+        /** products */
+
+        /** settings */
+            Route::get('settings', 'SettingsController@index')->name('settings');
+            Route::post('settings/update', 'SettingsController@update')->name('settings.update');
+        /** settings */
     });
 
     Route::get("{path}", function(){ return redirect()->route('admin.login'); })->where('path', '.+');

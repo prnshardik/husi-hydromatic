@@ -1,17 +1,19 @@
 <?php
 
     namespace Database\Seeders;
-    use App\Models\Category;
+    use App\Models\Product;
 
     use Illuminate\Database\Seeder;
 
-    class CategorySeeder extends Seeder{
+    class ProductSeeder extends Seeder{
 
         public function run(){
             for($i=1; $i <= 5; $i++){
-                Category::create([
-                    'name' => "Category $i",
-                    'description' => "Category $i description",
+                Product::create([
+                    'name' => "Product $i",
+                    'category_id' => $i,
+                    'description' => "Product $i description",
+                    'image' => 'default.png',
                     'status' => 'active',
                     'created_at' => date('Y-m-d H:i:s'),
                     'created_by' => 1,
