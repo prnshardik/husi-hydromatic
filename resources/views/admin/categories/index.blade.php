@@ -4,7 +4,7 @@
 @endsection
 
 @section('title')
-    Products
+    Categories
 @endsection
 
 @section('styles')
@@ -15,8 +15,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Products
-                        <a class="btn btn-primary btn-sm pull-right ml-2" style="margin-top: 8px;margin-bottom: 5px" href="{{ route('admin.product.create') }}">Add New</a>
+                    <h5 class="card-title">Categories
+                        <a class="btn btn-primary btn-sm pull-right ml-2" style="margin-top: 8px;margin-bottom: 5px" href="{{ route('admin.categories.create') }}">Add New</a>
                     </h5>
                 </div>
                 <div class="card-body">
@@ -69,7 +69,7 @@
                     // lengthChange: false,
 
                     "ajax":{
-                        "url": "{{ route('admin.products') }}",
+                        "url": "{{ route('admin.categories') }}",
                         "type": "POST",
                         "dataType": "json",
                         "data":{
@@ -116,7 +116,7 @@
 
             if (confirm(msg)) {
                 $.ajax({
-                    "url": "{!! route('admin.product.change.status') !!}",
+                    "url": "{!! route('admin.categories.change.status') !!}",
                     "dataType": "json",
                     "type": "POST",
                     "data":{

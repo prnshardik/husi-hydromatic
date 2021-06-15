@@ -28,6 +28,18 @@
                         
                         <div class="row">
                             <div class="form-group col-sm-12">
+                                <label for="category_id">Category <span class="text-danger">*</span></label>
+                                <select name="category_id" id="category_id" class="form-control">
+                                    <option value="" hidden>Select category</option>
+                                    @if($categories->isNotEmpty())
+                                        @foreach($categories as $row)
+                                            <option value="{{ $row->id }}" @if($data->category_id == $row->id) selected @endif>{{ $row->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                                <span class="kt-form__help error category_id"></span>
+                            </div>
+                            <div class="form-group col-sm-12">
                                 <label for="name">Name <span class="text-danger">*</span></label>
                                 <input type="text" name="name" id="name" class="form-control" placeholder="Plese enter name" value="{{ @old('name', $data->name) }}"/>
                                 <span class="kt-form__help error name"></span>
@@ -37,13 +49,11 @@
                                 <textarea name="description" id="description" class="form-control" placeholder="Plese enter description" cols="3" rows="5">{{ @old('description', $data->description) }}</textarea>
                                 <span class="kt-form__help error description"></span>
                             </div>
-
                             <div class="form-group col-sm-12">
                                 <label for="image">Image</label>
-                                <input type="file" class=" dropify" id="image" name="image"  data-allowed-file-extensions="jpg png jpeg" data-default-file="{{ $data->image }}" data-max-file-size-preview="20M" data-show-remove="true">
+                                <input type="file" class=" dropify" id="image" name="image" data-allowed-file-extensions="jpg png jpeg" data-default-file="{{ $data->image }}" data-max-file-size-preview="20M" data-show-remove="true">
                                 <span class="kt-form__help error image"></span>
                             </div>
-
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -57,7 +67,7 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('backend/assets/js/dropify.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/dropify.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/promise.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/sweetalert2.bundle.js') }}"></script>
 
@@ -81,12 +91,12 @@
             drEvent.on('dropify.beforeClear', function(event, element){
                 id = event.target.id;
                 if(!dropifyElements[id]){
-                    var url = "{!! route('admin.product.remove_image') !!}";
+                    var url = "{!! route('admin.product.remove.image') !!}";
                     <?php if(isset($data) && isset($data->id)){ ?>
                         var id_encoded = "{{ base64_encode($data->id) }}";
 
                         Swal.fire({
-                            title: 'Are you sure want delete this image?',
+                            title: 'asssAre you sure want delete this image?',
                             text: "",
                             type: 'warning',
                             showCancelButton: true,
@@ -105,15 +115,15 @@
                                     dataType: "JSON",
                                     success: function (data){
                                         if(data.code == 200){
-                                            Swal.fire('Deleted!', 'Deleted Successfully.', 'success');
+                                            Swal.fire('Deleted!', 'Image removed successfully.', 'success');
                                             dropifyElements[id] = true;
                                             element.clearElement();
                                         }else{
-                                            Swal.fire('', 'Failed to delete', 'error');
+                                            Swal.fire('', 'Failed to remove image', 'error');
                                         }
                                     },
                                     error: function (jqXHR, textStatus, errorThrown){
-                                        Swal.fire('', 'Failed to delete', 'error');
+                                        Swal.fire('', 'Failed to remove image', 'error');
                                     }
                                 });
                             }
@@ -131,11 +141,11 @@
                             confirmButtonText: 'Yes'
                         }).then(function (result){
                             if (result.value){
-                                Swal.fire('Deleted!', 'Deleted Successfully.', 'success');
+                                Swal.fire('Deleted!', 'Image removed successfully.', 'success');
                                 dropifyElements[id] = true;
                                 element.clearElement();
                             }else{
-                                Swal.fire('Cancelled', 'Discard Last Operation.', 'error');
+                                Swal.fire('Cancelled', 'Discard last operation.', 'error');
                             }
                         });
                         return false;

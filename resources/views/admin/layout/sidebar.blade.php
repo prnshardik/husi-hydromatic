@@ -21,7 +21,11 @@
                     <span class="nav-label">Dashboard</span>
                 </a>
             </li>
-
+            <li class="{{ Request::is('admin/categories*') ? 'active' : '' }}">
+                <a class="{{ Request::is('admin/categories*') ? 'active' : '' }}" href="{{ route('admin.categories') }}"><i class="sidebar-item-icon fa fa-th-large"></i>
+                    <span class="nav-label">Categories</span>
+                </a>
+            </li>
             <li class="{{ Request::is('admin/products*') ? 'active' : '' }}">
                 <a class="{{ Request::is('admin/products*') ? 'active' : '' }}" href="{{ route('admin.products') }}"><i class="sidebar-item-icon fa fa-th-large"></i>
                     <span class="nav-label">Products</span>

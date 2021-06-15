@@ -6,7 +6,8 @@
     use Illuminate\Http\Request;
     use App\Http\Requests\ProductRequest;
     use App\Models\Product;
-    use  DB,DataTables;
+    use App\Models\Category;
+    use DB, DataTables, File;
 
     class ProductController extends Controller{
         /** index */
@@ -55,7 +56,9 @@
 
         /** create */
             public function create(Request $request){
-                return view('admin.products.create');
+                $categories = Category::select('id', 'name')->where(['status' => 'active'])->get();
+
+                return view('admin.products.create', ['categories' => $categories]);
             }
         /** create */
 
@@ -65,13 +68,14 @@
 
                 if(!empty($request->all())){
                     $crud = [
-                            'name' => ucfirst($request->name),
-                            'description' => $request->description,
-                            'status' => 'active',
-                            'created_at' => date('Y-m-d H:i:s'),
-                            'created_by' => auth()->user()->id,
-                            'updated_at' => date('Y-m-d H:i:s'),
-                            'updated_by' => auth()->user()->id
+                        'category_id' => $request->category_id,
+                        'name' => ucfirst($request->name),
+                        'description' => $request->description ?? NULL,
+                        'status' => 'active',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'created_by' => auth()->user()->id,
+                        'updated_at' => date('Y-m-d H:i:s'),
+                        'updated_by' => auth()->user()->id
                     ];
 
                     if(!empty($request->file('image'))){
@@ -79,44 +83,30 @@
                         $filenameWithExtension = $request->file('image')->getClientOriginalName();
                         $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
                         $extension = $request->file('image')->getClientOriginalExtension();
-                        $filenameToStore = time()."_".$filename.'.'.$extension;
+                        $filenameToStore = time()."_".str_replace(' ', '_', strtolower($request->name)).'.'.$extension;
 
                         $folder_to_uploads = public_path().'/uploads/products/';
 
-                        if (!\File::exists($folder_to_uploads)) {
+                        if (!\File::exists($folder_to_uploads))
                             \File::makeDirectory($folder_to_uploads, 0777, true, true);
-                        }
 
                         $crud["image"] = $filenameToStore;
                     }else{
                         $crud["image"] = 'default.png';
                     }
 
-                    DB::beginTransaction();
-                    try {
-                        $last_id = Product::insertGetId($crud);
+                    $last_id = Product::insertGetId($crud);
+                    
+                    if($last_id){
+                        if(!empty($request->file('image')))
+                            $file->move($folder_to_uploads, $filenameToStore);
                         
-                        if($last_id){
-                            $folder_to_upload = public_path().'/uploads/qrcodes/';
-
-                            if (!\File::exists($folder_to_upload))
-                                \File::makeDirectory($folder_to_upload, 0777, true, true);
-                            
-                            if(!empty($request->file('image')))
-                                $file->move($folder_to_uploads, $filenameToStore);
-                            
-                            DB::commit();
-                            return redirect()->route('admin.products')->with('success', 'Product Created Successfully.');
-                        }else{
-                            DB::rollback();
-                            return redirect()->back()->with('error', 'Faild abc To Create Product!')->withInput();
-                        }
-                    } catch (\Exception $e) {
-                        DB::rollback();
-                        return redirect()->back()->with('error', 'Faild xyz To Create Product!')->withInput();
+                        return redirect()->route('admin.products')->with('success', 'Product added successfully.');
+                    }else{
+                        return redirect()->back()->with('error', 'Faild to add product')->withInput();
                     }
                 }else{
-                    return redirect()->back()->with('error', 'Something Went Wrong')->withInput();
+                    return redirect()->back()->with('error', 'Something went wrong')->withInput();
                 }
             }
         /** insert */
@@ -126,11 +116,13 @@
                 if($request->id == '')
                     return redirect()->back()->with('error', 'Something went wrong');
 
+                $categories = Category::select('id', 'name')->where(['status' => 'active'])->get();
+
                 $id = base64_decode($request->id);
 
                 $path = URL('/uploads/products').'/';
                 
-                $data = Product::select('id', 'name', 'description',
+                $data = Product::select('id', 'category_id', 'name', 'description',
                                         DB::Raw("CASE
                                             WHEN ".'image'." != '' THEN CONCAT("."'".$path."'".", ".'image'.")
                                             ELSE CONCAT("."'".$path."'".", 'default.png')
@@ -138,13 +130,10 @@
                                 ->where(['id' => $id])
                                 ->first();
             
-                if($data){
-                    return view('admin.products.edit', ['data' => $data]);
-                }else{
-                    return redirect()->back()->with('error', 'No Product Found');
-                }
-                
-                
+                if($data)
+                    return view('admin.products.edit', ['data' => $data, 'categories' => $categories]);
+                else
+                    return redirect()->back()->with('error', 'No data found');
             }
         /** edit */ 
 
@@ -153,13 +142,14 @@
                 if($request->ajax()){ return true; }
 
                 $exst_rec = Product::where(['id' => $request->id])->first();
-                
+
                 if(!empty($request->all())){
                     $crud = [
-                            'name' => ucfirst($request->name),
-                            'description' => $request->description ?? NULL,
-                            'updated_at' => date('Y-m-d H:i:s'),
-                            'updated_by' => auth()->user()->id
+                        'category_id' => $request->category_id,
+                        'name' => ucfirst($request->name),
+                        'description' => $request->description ?? NULL,
+                        'updated_at' => date('Y-m-d H:i:s'),
+                        'updated_by' => auth()->user()->id
                     ];
 
                     if(!empty($request->file('image'))){
@@ -167,37 +157,29 @@
                         $filenameWithExtension = $request->file('image')->getClientOriginalName();
                         $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
                         $extension = $request->file('image')->getClientOriginalExtension();
-                        $filenameToStore = time()."_".$filename.'.'.$extension;
+                        $filenameToStore = time()."_".str_replace(' ', '_', strtolower($request->name)).'.'.$extension;
 
                         $folder_to_upload = public_path().'/uploads/products/';
 
-                        if (!\File::exists($folder_to_upload)) {
+                        if (!\File::exists($folder_to_upload))
                             \File::makeDirectory($folder_to_upload, 0777, true, true);
-                        }
 
                         $crud["image"] = $filenameToStore;
                     }else{
                         $crud["image"] = $exst_rec->image;
                     }
 
-                    DB::beginTransaction();
-                    try {
-                        $update = Product::where(['id' => $request->id])->update($crud);
-                    
-                        if($update){
-                            if(!empty($request->file('image'))){
-                                $file->move($folder_to_upload, $filenameToStore);
-                            }
-
-                            DB::commit();
-                            return redirect()->route('admin.products')->with('success', 'Products Updated Successfully.');
-                        }else{
-                            DB::rollback();
-                            return redirect()->back()->with('error', 'Faild To Update Product!')->withInput();
+                    $update = Product::where(['id' => $request->id])->update($crud);
+                
+                    if($update){
+                        if(!empty($request->file('image'))){
+                            $file->move($folder_to_upload, $filenameToStore);
+                            @unlink(public_path().'/uploads/products/'.$exst_rec->image);
                         }
-                    } catch (\Exception $e) {
-                        DB::rollback();
-                        return redirect()->back()->with('error', 'Faild To Update Product!')->withInput();
+
+                        return redirect()->route('admin.products')->with('success', 'Product updated successfully');
+                    }else{
+                        return redirect()->back()->with('error', 'Faild to update product')->withInput();
                     }
                 }else{
                     return redirect()->back()->with('error', 'Something went wrong')->withInput();
@@ -212,9 +194,11 @@
 
                 $id = base64_decode($request->id);
 
+                $categories = Category::select('id', 'name')->where(['status' => 'active'])->get();
+
                 $path = URL('/uploads/products').'/';
                 
-                $data = Product::select('id', 'name', 'description',
+                $data = Product::select('id', 'category_id', 'name', 'description',
                                         DB::Raw("CASE
                                             WHEN ".'image'." != '' THEN CONCAT("."'".$path."'".", ".'image'.")
                                             ELSE CONCAT("."'".$path."'".", 'default.png')
@@ -222,12 +206,10 @@
                                 ->where(['id' => $id])
                                 ->first();
             
-                if($data){
-                    return view('admin.products.view', ['data' => $data]);
-                }else{
-                    return redirect()->back()->with('error', 'No Product Found');
-                }
-                    
+                if($data)
+                    return view('admin.products.view', ['data' => $data, 'categories' => $categories]);
+                else
+                    return redirect()->back()->with('error', 'No data found');    
             }
         /** view */ 
 
@@ -248,15 +230,15 @@
                             $update = Product::where(['id' => $id])->update(['status' => $status, 'updated_at' => date('Y-m-d H:i:s'), 'updated_by' => auth()->user()->id]);
                         
                         if($update){
-                          
-                            $exst_file = public_path().'/uploads/products/'.$data->image;
-
-                            if(\File::exists($exst_file) && $exst_file != '')
-                                @unlink($exst_file);
+                            if($status == 'deleted'){
+                                $exst_file = public_path().'/uploads/products/'.$data->image;
+    
+                                if(\File::exists($exst_file) && $exst_file != '')
+                                    @unlink($exst_file);
+                            }
                             
                             return response()->json(['code' => 200]);
                         }else{
-                            
                             return response()->json(['code' => 201]);
                         }
                     }else{
@@ -268,129 +250,38 @@
             }
         /** change-status */
 
-        /** generate-qrcode */
-            public function generate($id=''){
-                if($id == '')
-                    return false;
-
-                $exst_file = public_path().'/uploads/qrcodes/qrcode_'.$id.'.png';
-                if(\File::exists($exst_file) && $exst_file != '')
-                    @unlink($exst_file);
-                
-                $qrname = 'qrcode_'.$id.'.png';
-
-                \QrCode::size(500)->format('png')->generate($id, public_path('uploads/qrcodes/'.$qrname));
-
-                $update = Inventory::where(['id' => $id])->update(['qrcode' => $qrname, 'updated_at' => date('Y-m-d H:i:s'), 'updated_by' => auth()->user()->id]);
-                
-                if($update)
-                    return true;
-                else
-                    return false;
-            }
-        /** generate-qrcode */
-
-        /** generate-item-qrcode */
-            public function generate_item($id=''){
-                if($id == '')
-                    return false;
-                $folder_to_uploads = public_path().'/uploads/qrcodes/item/';
-
-                if (!\File::exists($folder_to_uploads)) {
-                    \File::makeDirectory($folder_to_uploads, 0777, true, true);
-                }
-
-                $exst_file = public_path().'/uploads/qrcodes/item/qrcode_'.$id.'.png';
-                if(\File::exists($exst_file) && $exst_file != '')
-                    @unlink($exst_file);
-                
-                $qrname = 'qrcode_'.$id.'.png';
-
-                \QrCode::size(500)->format('png')->generate($id, public_path('uploads/qrcodes/item/'.$qrname));
-
-                $update = InventoryDetail::where(['id' => $id])->update(['qr_code' => $qrname, 'updated_at' => date('Y-m-d H:i:s'), 'updated_by' => auth()->user()->id]);
-                
-                if($update)
-                    return true;
-                else
-                    return false;
-            }
-        /** generate-item-qrcode */
-
-        /** print-qrcode */
-            public function print(Request $request, $id=''){
-                if($id == '')
-                    return redirect()->back()->with('error', 'something went wrong');
-
-                $id = base64_decode($id);
-                $generate = $this->generate($id);
-                if($generate){
-                    $data = Inventory::select('qrcode')->where(['id' => $id])->first();
-                
-                    if($data)
-                        return view('inventory.print', ['data' => $data]);
-                    else
-                        return redirect()->back()->with('error', 'Something went wrong');    
-                }else{
-                    return redirect()->back()->with('error', 'something went wrong');
-                }
-                
-            }
-        /** print-qrcode */
-
-        /** print-item-qrcode */
-            public function print_item(Request $request, $id=''){
-                if($id == '')
-                    return redirect()->back()->with('error', 'something went wrong');
-                $id = base64_decode($id);
-                $generate = $this->generate_item($id);
-
-                if($generate){
-                    $data = InventoryDetail::select('qr_code')->where(['id' => $id])->first();
-                
-                    if($data)
-                        return view('inventory.printItem', ['data' => $data]);
-                    else
-                        return redirect()->back()->with('error', 'Something went wrong');    
-                }else{
-                    return redirect()->back()->with('error', 'something went wrong');
-                }                
-            }
-        /** print-item-qrcode */
-
-        /** profile remove */
-            public function profile_remove(Request $request){
+        /** remove-image */
+            public function remove_image(Request $request){
                 if(!$request->ajax()){ exit('No direct script access allowed'); }
 
                 if(!empty($request->all())){
                     $id = base64_decode($request->id);
-                    $data = DB::table('inventories')->find($id);
+                    $data = Product::find($id);
 
+                    $data = Product::where(['id' => $id])->first();
+               
                     if($data){
-                        if($data->file != ''){
-                            $file_path = public_path().'/uploads/inventory/'.$data->file;
+                        $update = Product::where(['id' => $id])->update(['image' => null]);
 
-                            if(File::exists($file_path) && $file_path != ''){
-                                if($data->file != 'default.png'){
-                                    unlink($file_path);
-                                }
+                        if($update){
+                            if($data->image != '' || $data->image != null){
+                                $file_path = public_path().'/uploads/products/'.$data->image;
+    
+                                if(File::exists($file_path) && $file_path != '')
+                                    if($data->image != 'default.png')
+                                        @unlink($file_path);   
                             }
 
-                            $update = DB::table('inventories')->where(['id' => $id])->limit(1)->update(['file' => null]);
-
-                            if($update)
-                                return response()->json(['code' => 200]);
-                            else
-                                return response()->json(['code' => 201]);
-                        }else{
                             return response()->json(['code' => 200]);
+                        }else{
+                            return response()->json(['code' => 201]);
                         }
                     }else{
-                        return response()->json(['code' => 201]);
+                        return response()->json(['code' => 201]);    
                     }
                 }else{
                     return response()->json(['code' => 201]);
                 }
             }
-        /** profile remove */
+        /** remove-image */
     }
