@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>{{ _site_title() }}</title>
+    <title>{{ _settings('SITE_TITLE') }}</title>
 
     <style type="text/css" rel="stylesheet" media="all">
         @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,700&display=swap");
@@ -407,7 +407,7 @@
                                         <center>
                                             <a>
                                                 <!-- <img alt="" src="{{ $data['logo'] ?? '' }}" style="height: 50px;width: auto;" /> -->
-                                                <h3 class="custom_title">{{ _site_title() }}</h3>
+                                                <h3 class="custom_title">{{ _settings('SITE_TITLE') }}</h3>
                                             </a>
                                         </center>
                                         <br>
@@ -450,7 +450,7 @@
                                             <div class="wrapper">
                                                 <p>Thank you for being with us.</p>
                                             </div>
-                                            <p>Regards,<br> {{ _site_title() }}
+                                            <p>Regards,<br> {{ _settings('SITE_TITLE') }}
                                         </div>
                                     </td>
                                 </tr>

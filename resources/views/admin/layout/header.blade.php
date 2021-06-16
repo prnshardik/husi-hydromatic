@@ -1,8 +1,8 @@
 <header class="header">
     <div class="page-brand">
         <a class="link" href="{{ route('admin.dashboard') }}">
-            <span class="brand">{{ _site_title() }}</span>
-            <span class="brand-mini">{{ _site_title_sf() }}</span>
+            <span class="brand">{{ _settings('SITE_TITLE') }}</span>
+            <span class="brand-mini">{{ _settings('SITE_TITLE_SF') }}</span>
         </a>
     </div>
     <div class="flexbox flex-1">

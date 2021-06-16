@@ -1,7 +1,7 @@
 @extends('front.layout.app')
 
 @section('title')
-    {{ _site_title() }}
+    {{ _settings('SITE_TITLE') }}
 @endsection
 
 @section('meta')
@@ -17,7 +17,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <a href="{{ route('home') }}" class="logo">
-                        <h4 style="font-size: 24px;">{{ _site_title() }} <img src="{{ asset('frontend/assets/images/logo-icon.png') }}" alt=""></h4>
+                        <h4 style="font-size: 24px;">{{ _settings('SITE_TITLE') }} <img src="{{ asset('frontend/assets/images/logo-icon.png') }}" alt=""></h4>
                     </a>
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="{{route('home')}}/#top" class="active">Home</a></li>

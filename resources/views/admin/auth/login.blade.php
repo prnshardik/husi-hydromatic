@@ -12,7 +12,7 @@
 
 @section('content')
     <div class="brand">
-        <a class="link" href="{{ route('admin.dashboard') }}">{{ _site_title() }}</a>
+        <a class="link" href="{{ route('admin.dashboard') }}">{{ _settings('SITE_TITLE') }}</a>
     </div>
     <form id="form" action="{{ route('admin.signin') }}" method="post">
         @csrf

@@ -4,7 +4,7 @@
 <head>
     @include('admin.layout.meta')
 
-    <title>{{ _site_title() }} | @yield('title')</title>
+    <title>{{ _settings('SITE_TITLE') }} | @yield('title')</title>
     
     @include('admin.layout.styles')
 

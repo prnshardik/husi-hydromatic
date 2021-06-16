@@ -13,7 +13,7 @@
 @section('content')
     <div class="content mt-5">
         <div class="brand">
-            <a class="link" href="javascript:void(0);">{{ _site_title() }}</a>
+            <a class="link" href="javascript:void(0);">{{ _settings('SITE_TITLE') }}</a>
         </div>
         <form id="forgot-form" action="{{ route('admin.password.forget') }}" method="post">
             @csrf

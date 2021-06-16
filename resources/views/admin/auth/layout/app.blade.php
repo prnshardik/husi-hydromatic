@@ -8,7 +8,7 @@
 
     @yield('meta')
 
-    <title>{{ _site_title() }} | @yield('title')</title>
+    <title>{{ _settings('SITE_TITLE') }} | @yield('title')</title>
     
     <link href="{{ asset('backend/assets/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/assets/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
