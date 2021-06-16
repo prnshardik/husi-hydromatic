@@ -34,7 +34,6 @@
                                     <span class="kt-form__help error description"></span>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="{{ route('admin.categories') }}" class="btn btn-default">Back</a>
