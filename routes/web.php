@@ -38,7 +38,6 @@ Route::group(['middleware' => ['prevent-back-history'], 'prefix' => 'admin', 'na
         Route::post('password-forget', 'AuthController@password_forget')->name('password.forget');
         Route::get('reset-password/{string}', 'AuthController@reset_password')->name('reset.password');
         Route::post('recover-password', 'AuthController@recover_password')->name('recover.password');
-        
     });
 
     Route::group(['middleware' => ['auth:admin']], function () {

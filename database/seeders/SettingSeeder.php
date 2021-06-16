@@ -57,5 +57,85 @@
                 'updated_at' => date('Y-m-d H:i:s'),
                 'updated_by' => 1
             ]);
+
+            Setting::create([
+                'key' => 'MAIL_DRIVER',
+                'value' => 'smtp',
+                'type' => 'smtp',
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => 1
+            ]);
+
+            Setting::create([
+                'key' => 'MAIL_HOST',
+                'value' => 'mail.khushihydtic.com',
+                'type' => 'smtp',
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => 1
+            ]);
+
+            Setting::create([
+                'key' => 'MAIL_PORT',
+                'value' => '465',
+                'type' => 'smtp',
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => 1
+            ]);
+
+            Setting::create([
+                'key' => 'MAIL_USERNAME',
+                'value' => 'info@khushihydtic.com',
+                'type' => 'smtp',
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => 1
+            ]);
+
+            Setting::create([
+                'key' => 'MAIL_PASSWORD',
+                'value' => 'ABCD1234',
+                'type' => 'smtp',
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => 1
+            ]);
+
+            Setting::create([
+                'key' => 'MAIL_ENCRYPTION',
+                'value' => 'ssl',
+                'type' => 'smtp',
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => 1
+            ]);
+
+            Setting::create([
+                'key' => 'MAIL_FROM_ADDRESS',
+                'value' => 'info@khushihydtic.com',
+                'type' => 'smtp',
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => 1
+            ]);
+
+            Setting::create([
+                'key' => 'MAIL_FROM_NAME',
+                'value' => 'Khushi Hydtic',
+                'type' => 'smtp',
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => 1
+            ]);
         }
     }

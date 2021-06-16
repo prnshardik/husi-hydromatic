@@ -25,12 +25,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '0ec466880be3bf0daf44235b4b5b2f46fa490648',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -446,6 +446,15 @@ private static $installed = array (
         0 => 'v8.44.0',
       ),
     ),
+    'jackiedo/dotenv-editor' => 
+    array (
+      'pretty_version' => '1.2.0',
+      'version' => '1.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f93690a80915d51552931d9406d79b312da226b9',
+    ),
     'kodova/hamcrest-php' => 
     array (
       'replaced' => 
@@ -464,12 +473,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '0ec466880be3bf0daf44235b4b5b2f46fa490648',
     ),
     'laravel/sail' => 
     array (

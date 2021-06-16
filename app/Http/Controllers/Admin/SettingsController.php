@@ -10,8 +10,9 @@
     class SettingsController extends Controller{
         public function index(){
             $general = Setting::select('id', 'key', 'value')->where(['type' => 'general'])->get();
+            $smtp = Setting::select('id', 'key', 'value')->where(['type' => 'smtp'])->get();
         
-            return view('admin.settings.index', ['general' => $general]);
+            return view('admin.settings.index', ['general' => $general, 'smtp' => $smtp]);
         }
 
         public function update(Request $request){
