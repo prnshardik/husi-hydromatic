@@ -13,12 +13,13 @@
 @section('content')
     <div class="page-content fade-in-up">
         <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">Products
-                            <a class="btn btn-primary btn-sm pull-right ml-2" style="margin-top: 8px;margin-bottom: 5px" href="{{ route('admin.product.create') }}">Add New</a>
-                        </h5>
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <h1 class="ibox-title">Products</h1>
+                        <h1 class="pull-right">
+                            <a class="btn btn-primary pull-right ml-2" style="margin-top: 8px;margin-bottom: 5px" href="{{ route('admin.product.create') }}">Add New</a>
+                        </h1>
                     </div>
                     <div class="card-body">
                         <div class="toolbar"></div>

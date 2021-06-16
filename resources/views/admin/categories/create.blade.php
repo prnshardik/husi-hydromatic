@@ -12,16 +12,16 @@
 
 @section('content')
     <div class="page-content fade-in-up">
-        <div class="row">
+    <div class="row">
             <div class="col-md-12">
-                <div class="card ">
-                    <div class="card-header ">
-                        <h4 class="card-title">Create Category</h4>
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Create Category</div>
                     </div>
-                    <div class="card-body ">
+                    <div class="ibox-body">
                         <form name="form" action="{{ route('admin.categories.insert') }}" id="form" method="post" enctype="multipart/form-data">
                             @csrf
-                            
+    
                             <div class="row">
                                 <div class="form-group col-sm-12">
                                     <label for="name">Name <span class="text-danger">*</span></label>
@@ -29,7 +29,7 @@
                                     <span class="kt-form__help error name"></span>
                                 </div>
                                 <div class="form-group col-sm-12">
-                                    <label for="description">Description <span class="text-danger"></span></label>
+                                    <label for="description">Description <span class="text-danger">*</span></label>
                                     <textarea name="description" id="description" class="form-control" placeholder="Plese enter description" cols="3" rows="5">{{ @old('description') }}</textarea>
                                     <span class="kt-form__help error description"></span>
                                 </div>

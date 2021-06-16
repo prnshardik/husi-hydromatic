@@ -16,11 +16,11 @@
     <div class="page-content fade-in-up">
         <div class="row">
             <div class="col-md-12">
-                <div class="card ">
-                    <div class="card-header ">
-                        <h4 class="card-title">Edit Product</h4>
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Edit Product</div>
                     </div>
-                    <div class="card-body ">
+                    <div class="ibox-body">
                         <form name="form" action="{{ route('admin.product.update') }}" id="form" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="form-group col-sm-12">
                                     <label for="image">Image</label>
-                                    <input type="file" class=" dropify" id="image" name="image" data-allowed-file-extensions="jpg png jpeg" data-default-file="{{ $data->image }}" data-max-file-size-preview="20M" data-show-remove="true">
+                                    <input type="file" class=" dropify" id="image" name="image" data-allowed-file-extensions="jpg png jpeg" data-default-file="{{ $data->image }}" data-max-file-size-preview="20M" data-show-errors="true" data-errors-position="outside" data-show-remove="false">
                                     <span class="kt-form__help error image"></span>
                                 </div>
                             </div>

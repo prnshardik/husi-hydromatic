@@ -16,11 +16,11 @@
     <div class="page-content fade-in-up">
         <div class="row">
             <div class="col-md-12">
-                <div class="card ">
-                    <div class="card-header ">
-                        <h4 class="card-title">Create Product</h4>
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Create Product</div>
                     </div>
-                    <div class="card-body ">
+                    <div class="ibox-body">
                         <form name="form" action="{{ route('admin.product.insert') }}" id="form" method="post" enctype="multipart/form-data">
                             @csrf
                             
@@ -49,11 +49,10 @@
                                 </div>
                                 <div class="form-group col-sm-12">
                                     <label for="image">Image</label>
-                                    <input type="file" class=" dropify" id="image" name="image"  data-allowed-file-extensions="jpg png jpeg" data-max-file-size-preview="20M" data-show-remove="true">
+                                    <input type="file" class=" dropify" id="image" name="image"  data-allowed-file-extensions="jpg png jpeg" data-max-file-size-preview="20M" data-show-remove="false" data-show-errors="true" data-errors-position="outside" required="required">
                                     <span class="kt-form__help error image"></span>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="{{ route('admin.products') }}" class="btn btn-default">Back</a>

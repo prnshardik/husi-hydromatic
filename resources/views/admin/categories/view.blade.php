@@ -14,21 +14,19 @@
     <div class="page-content fade-in-up">
         <div class="row">
             <div class="col-md-12">
-                <div class="card ">
-                    <div class="card-header ">
-                        <h4 class="card-title">View Category</h4>
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">View Category</div>
                     </div>
-                    <div class="card-body ">
+                    <div class="ibox-body">
                         <div class="row">
                             <div class="form-group col-sm-12">
                                 <label for="name">Name <span class="text-danger">*</span></label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Plese enter name" value="{{ $data->name ?? '' }}" disabled />
-                                <span class="kt-form__help error name"></span>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Plese enter name" value="{{ @old('name', $data->name) }}" readonly />
                             </div>
                             <div class="form-group col-sm-12">
-                                <label for="description">Description <span class="text-danger"></span></label>
-                                <textarea name="description" id="description" class="form-control" placeholder="Plese enter description" cols="3" rows="5" disabled>{{ $data->description ?? '' }}</textarea>
-                                <span class="kt-form__help error description"></span>
+                                <label for="description">Description <span class="text-danger">*</span></label>
+                                <textarea name="description" id="description" class="form-control" placeholder="Plese enter description" cols="3" rows="5" readonly>{{ @old('description', $data->description) }}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
