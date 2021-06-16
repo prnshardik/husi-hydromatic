@@ -189,56 +189,50 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-3">
                             <div class="contact-info">
                                 <ul>
                                     <li>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="icon">
-                                                    <img src="{{ asset('frontend/assets/images/contact-icon-01.png') }}" alt="email icon">
-                                                </div>
-                                                <a href="#">{{_settings('CONTACT_EMAIL')}}</a>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="icon">
-                                                    <img src="{{ asset('frontend/assets/images/contact-icon-01.png') }}" alt="email icon">
-                                                </div>
-                                                <a href="#">{{_settings('MAIN_CONTACT_EMAIL')}}</a>
-                                            </div>
+                                        <div class="icon">
+                                            <img src="{{ asset('frontend/assets/images/contact-icon-01.png') }}" alt="email icon">
                                         </div>
+                                        <a href="#">{{_settings('CONTACT_EMAIL')}}</a>
                                     </li>
                                     <li>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="icon">
-                                                    <img src="{{ asset('frontend/assets/images/contact-icon-02.png') }}" alt="phone">
-                                                </div>
-                                                <a href="#">{{_settings('MAIN_CONTACT_NUMBER')}}</a>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="icon">
-                                                    <img src="{{ asset('frontend/assets/images/contact-icon-02.png') }}" alt="phone">
-                                                </div>
-                                                <a href="#">{{_settings('CONTACT_NUMBER')}}</a>
-                                            </div>
+                                        <div class="icon">
+                                            <img src="{{ asset('frontend/assets/images/contact-icon-02.png') }}" alt="phone">
                                         </div>
+                                        <a href="#">{{_settings('MAIN_CONTACT_NUMBER')}}</a>
                                     </li>
                                     <li>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="icon">
-                                                    <img src="{{ asset('frontend/assets/images/contact-icon-03.png') }}" alt="location">
-                                                </div>
-                                                <a href="#">{!! _settings('CONTACT_ADDRESS') !!}</a>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="icon">
-                                                    <img src="{{ asset('frontend/assets/images/contact-icon-03.png') }}" alt="location">
-                                                </div>
-                                                <a href="#">{!! _settings('MAIN_CONTACT_ADDRESS') !!}</a>
-                                            </div>
+                                        <div class="icon">
+                                            <img src="{{ asset('frontend/assets/images/contact-icon-03.png') }}" alt="location">
                                         </div>
+                                        <a href="#">{!! _settings('CONTACT_ADDRESS') !!}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="contact-info">
+                                <ul>
+                                    <li>
+                                        <div class="icon">
+                                            <img src="{{ asset('frontend/assets/images/contact-icon-01.png') }}" alt="email icon">
+                                        </div>
+                                        <a href="#">{{_settings('MAIN_CONTACT_EMAIL')}}</a>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <img src="{{ asset('frontend/assets/images/contact-icon-02.png') }}" alt="phone">
+                                        </div>
+                                        <a href="#">{{_settings('CONTACT_NUMBER')}}</a>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <img src="{{ asset('frontend/assets/images/contact-icon-03.png') }}" alt="location">
+                                        </div>
+                                        <a href="#">{!! _settings('MAIN_CONTACT_ADDRESS') !!}</a>
                                     </li>
                                 </ul>
                             </div>
