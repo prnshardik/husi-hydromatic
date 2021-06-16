@@ -43,26 +43,8 @@
                     <div class="col-lg-6 align-self-center">
                         <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                             <div class="row">
-                                <div class="col-lg-4 col-sm-4">
-                                    <div class="info-stat">
-                                        <h6>Agency Status:</h6>
-                                        <h4>Ready Work</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-4">
-                                    <div class="info-stat">
-                                        <h6>Price:</h6>
-                                        <h4>$720/Month</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-4">
-                                    <div class="info-stat">
-                                        <h6>Schedules</h6>
-                                        <h4>$450/Meeting</h4>
-                                    </div>
-                                </div>
                                 <div class="col-lg-12">
-                                    <h2>SEO &amp; Digital Marketing Agency</h2>
+                                    <h2>Khushi Hydromatic</h2>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="main-green-button scroll-to-section">
@@ -233,8 +215,8 @@
             </div>
             </div>
         </div>
-        <p><a rel="nofollow" href="https://templatemo.com/tm-563-seo-dream" target="_parent">SEO Dream</a> is free digital marketing CSS template provided by TemplateMo website. You are allowed to use this template for your business websites. Please DO NOT redistribute this template ZIP file on any Free CSS collection websites. You may contact us for more information. Thank you.</p>
-        <div class="main-green-button"><a href="#">Discover company</a></div>
+        <p>Incepted in the year of 2010, we at Khushi Hydromatic are pleased to introduce ourselves as Exporter/stockiest/supplier of Hydraulic Pumps, Hydraulic valve, Hydraulic Vane Pumps, Hydraulic Valves, Yuken Hydraulic Products, etc. In global market, we are recognized as one of the most dependable Hydraulic Valve and Pump Exporters and  Distributor. We work very closely with our international partners to offer the best Brands at most reasonable prices. It is our humble effort to reduce your Purchase costs & also offer Hydraulic equipment & accessories for OEM requirements.</p>
+        <div class="main-green-button"><a href="#products">Discover company</a></div>
         </div>
     </div>
     </div>
@@ -293,19 +275,22 @@
                     <div class="icon">
                         <img src="{{ asset('frontend/assets/images/contact-icon-01.png') }}" alt="email icon">
                     </div>
-                    <a href="#">info@company.com</a>
+                    <a href="#">{{_settings('CONTACT_EMAIL')}}</a>
+                    <a href="#">{{_settings('MAIN_CONTACT_EMAIL')}}</a>
                     </li>
                     <li>
                     <div class="icon">
                         <img src="{{ asset('frontend/assets/images/contact-icon-02.png') }}" alt="phone">
                     </div>
-                    <a href="#">+001-002-0034</a>
+                    <a href="#">{{_settings('MAIN_CONTACT_NUMBER')}}</a><br>
+                    <a href="#">{{_settings('CONTACT_NUMBER')}}</a>
                     </li>
                     <li>
                     <div class="icon">
                         <img src="{{ asset('frontend/assets/images/contact-icon-03.png') }}" alt="location">
                     </div>
-                    <a href="#">26th Street, Digital Villa</a>
+                    <a href="#">{!! _settings('CONTACT_ADDRESS') !!}</a><br><br>
+                    <a href="#">{!! _settings('MAIN_CONTACT_ADDRESS') !!}</a>
                     </li>
                 </ul>
                 </div>

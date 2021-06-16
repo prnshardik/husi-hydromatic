@@ -30,7 +30,17 @@
 
             Setting::create([
                 'key' => 'CONTACT_NUMBER',
-                'value' => '+91 00000 00000',
+                'value' => '+91-9724789079',
+                'type' => 'general',
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => 1
+            ]);
+
+            Setting::create([
+                'key' => 'MAIN_CONTACT_NUMBER',
+                'value' => '+91-9099081054',
                 'type' => 'general',
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
@@ -40,7 +50,17 @@
 
             Setting::create([
                 'key' => 'CONTACT_EMAIL',
-                'value' => 'info@khusihydtic.com',
+                'value' => 'export@khushihydtic.com',
+                'type' => 'general',
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => 1
+            ]);
+
+            Setting::create([
+                'key' => 'MAIN_CONTACT_EMAIL',
+                'value' => 'ravi@khushihydtic.com',
                 'type' => 'general',
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
@@ -50,7 +70,17 @@
 
             Setting::create([
                 'key' => 'CONTACT_ADDRESS',
-                'value' => 'G-13, City Plex,<br./>City Center,<br/>Rajkot,<br/>Rajkot-380000',
+                'value' => '<strong>Registered Address:-</strong> Plot No:22, Gulmohar Co.Op,So Ltd, Shimpoli Road,   Borivali(West), Mumbai-400092',
+                'type' => 'general',
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => 1
+            ]);
+
+            Setting::create([
+                'key' => 'MAIN_CONTACT_ADDRESS',
+                'value' => '<strong>Branch/Courier Address:-</strong>  D-1402 Sun South Park, South Bopal,  Ahmedabad-38008',
                 'type' => 'general',
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
@@ -90,7 +120,7 @@
 
             Setting::create([
                 'key' => 'MAIL_USERNAME',
-                'value' => 'info@khushihydtic.com',
+                'value' => 'export@khushihydtic.com',
                 'type' => 'smtp',
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
@@ -100,7 +130,7 @@
 
             Setting::create([
                 'key' => 'MAIL_PASSWORD',
-                'value' => 'ABCD1234',
+                'value' => 'Khushi@hydict.com',
                 'type' => 'smtp',
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
@@ -120,7 +150,7 @@
 
             Setting::create([
                 'key' => 'MAIL_FROM_ADDRESS',
-                'value' => 'info@khushihydtic.com',
+                'value' => 'export@khushihydtic.com',
                 'type' => 'smtp',
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
