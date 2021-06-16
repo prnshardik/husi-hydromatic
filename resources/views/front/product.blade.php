@@ -39,17 +39,15 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-                    <img src="{{ asset('frontend/assets/images/about-left-image.png') }}" alt="">
+                    <img src="{{ $product->image ?? '' }}" alt="{{ $product->name ?? '' }}">
                 </div>
             </div>
             <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <div class="section-heading">
-                    <h6>Prodcut Name</h6>
-                    <h2>Lorem ipsum <em>consectetur</em> adipisicing &amp; Aperiam rerum <span>quaerat</span></h2>
+                    <h6>{{ $product->category_name ?? '' }}</h6>
+                    <h2>{{ $product->name ?? '' }}</h2>
                 </div>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae laudantium placeat repellat non nihil voluptatum numquam, harum nisi tenetur, assumenda labore minus atque in aliquam alias. Ipsa consequuntur laborum fuga porro, consectetur enim sequi quibusdam voluptatem nostrum ab numquam nisi delectus cupiditate repudiandae mollitia eum aut unde rem illum! Commodi deleniti quae incidunt libero repellendus suscipit vero molestias provident.
-                </p>
+                <p>{{ $product->description ?? '' }}</p>
                 <div class="main-green-button">
                     <a href="{{route('home')}}#contact">Get Your Quote</a>
                 </div>

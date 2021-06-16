@@ -5,3 +5,9 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/templatemo.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/animated.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.css') }}">
+<link href="{{ asset('backend/assets/vendors/toastr/toastr.min.css') }}" rel="stylesheet" />
+<style>
+	.error{
+		color:red;
+	}
+</style>
