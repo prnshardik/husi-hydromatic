@@ -10,7 +10,12 @@
     class DashboardController extends Controller{
         /** index */
             public function index(Request $request){
-               return view('admin.dashboard');
+                $products = DB::table('products')->select(DB::Raw("COUNT(".'id'.") as count"))->where(['status' => 'active'])->first();
+                $categories = DB::table('categories')->select(DB::Raw("COUNT(".'id'.") as count"))->where(['status' => 'active'])->first();
+
+                $contactus = DB::table('contact_us')->select('id', 'name', 'email', 'phone')->where(['is_read' => 'n'])->get();
+
+                return view('admin.dashboard', ['products' => $products->count, 'categories' => $categories->count, 'contactus' => $contactus]);
             }
         /** index */
     }
