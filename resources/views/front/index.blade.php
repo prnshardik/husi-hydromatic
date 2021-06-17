@@ -116,26 +116,6 @@
                     <h6>About Us</h6>
                     <h2>Top <em>marketing</em> agency &amp; consult your website <span>with us</span></h2>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-4">
-                        <div class="about-item">
-                            <h4>750+</h4>
-                            <h6>projects finished</h6>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-4">
-                        <div class="about-item">
-                            <h4>340+</h4>
-                            <h6>happy clients</h6>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-4">
-                        <div class="about-item">
-                            <h4>128+</h4>
-                            <h6>awards</h6>
-                        </div>
-                    </div>
-                </div>
                 <p>Incepted in the year of 2010, we at Khushi Hydromatic are pleased to introduce ourselves as Exporter/stockiest/supplier of Hydraulic Pumps, Hydraulic valve, Hydraulic Vane Pumps, Hydraulic Valves, Yuken Hydraulic Products, etc. In global market, we are recognized as one of the most dependable Hydraulic Valve and Pump Exporters and  Distributor. We work very closely with our international partners to offer the best Brands at most reasonable prices. It is our humble effort to reduce your Purchase costs & also offer Hydraulic equipment & accessories for OEM requirements.</p>
                 <div class="main-green-button"><a href="#products">Discover company</a></div>
             </div>
