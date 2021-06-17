@@ -128,7 +128,7 @@
         <div class="row">
             <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
                 <form id="contact" class="contactus" action="{{ route('contact') }}" method="post">
-                    @csrf_field()
+                    {{csrf_field()}}
 
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3">
