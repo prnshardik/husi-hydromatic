@@ -31,6 +31,11 @@
                     <span class="nav-label">Products</span>
                 </a>
             </li>
+            <li class="{{ Request::is('admin/contactus*') ? 'active' : '' }}">
+                <a class="{{ Request::is('admin/contactus*') ? 'active' : '' }}" href="{{ route('admin.contactus') }}"><i class="sidebar-item-icon fa fa-envelope"></i>
+                    <span class="nav-label">Contact US</span>
+                </a>
+            </li>
             <li class="{{ Request::is('admin/settings*') ? 'active' : '' }}">
                 <a class="{{ Request::is('admin/settings*') ? 'active' : '' }}" href="{{ route('admin.settings') }}"><i class="sidebar-item-icon fa fa-cogs"></i>
                     <span class="nav-label">Settings</span>

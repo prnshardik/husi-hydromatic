@@ -8,7 +8,6 @@
     use Auth, DB;
 
     class DashboardController extends Controller{
-
         /** index */
             public function index(Request $request){
                return view('admin.dashboard');
