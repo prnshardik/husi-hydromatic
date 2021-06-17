@@ -20,11 +20,11 @@
                         <h4 style="font-size: 24px;">{{ _settings('SITE_TITLE') }} <img src="{{ asset('frontend/assets/images/logo-icon.png') }}" alt=""></h4>
                     </a>
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="{{route('home')}}/#top" class="active">Home</a></li>
-                        <li class="scroll-to-section"><a href="{{route('home')}}#products">Products</a></li>
-                        <li class="scroll-to-section"><a href="{{route('home')}}#about">About Us</a></li>
-                        <li class="scroll-to-section"><a href="{{route('home')}}#contact">Contact Us</a></li> 
-                        <li class="scroll-to-section"><div class="main-blue-button"><a href="{{route('home')}}#contact">Get Your Quote</a></div></li> 
+                        <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="#products">Products</a></li>
+                        <li class="scroll-to-section"><a href="#about">About Us</a></li>
+                        <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
+                        <li class="scroll-to-section"><div class="main-blue-button"><a href="#contact">Get Your Quote</a></div></li> 
                     </ul>        
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -84,7 +84,7 @@
                         @foreach($products as $k => $v)
                             <div class="item">
                                 <div class="portfolio-item">
-                                    <div class="thumb">
+                                    <div class="thumb" style="min-height:315px;" >
                                         <img src="{{ $v->image }}" alt="{{ $v->name }}">
                                         <div class="hover-content">
                                             <div class="inner-content">
@@ -105,41 +105,41 @@
 
 <div id="about" class="about-us section">
     <div class="container">
-    <div class="row">
-        <div class="col-lg-6">
-        <div class="left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-            <img src="{{ asset('frontend/assets/images/about-left-image.png') }}" alt="">
-        </div>
-        </div>
-        <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-        <div class="section-heading">
-            <h6>About Us</h6>
-            <h2>Top <em>marketing</em> agency &amp; consult your website <span>with us</span></h2>
-        </div>
         <div class="row">
-            <div class="col-lg-4 col-sm-4">
-            <div class="about-item">
-                <h4>750+</h4>
-                <h6>projects finished</h6>
+            <div class="col-lg-6">
+                <div class="left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                    <img src="{{ asset('frontend/assets/images/about-left-image.png') }}" alt="">
+                </div>
             </div>
-            </div>
-            <div class="col-lg-4 col-sm-4">
-            <div class="about-item">
-                <h4>340+</h4>
-                <h6>happy clients</h6>
-            </div>
-            </div>
-            <div class="col-lg-4 col-sm-4">
-            <div class="about-item">
-                <h4>128+</h4>
-                <h6>awards</h6>
-            </div>
+            <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <div class="section-heading">
+                    <h6>About Us</h6>
+                    <h2>Top <em>marketing</em> agency &amp; consult your website <span>with us</span></h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="about-item">
+                            <h4>750+</h4>
+                            <h6>projects finished</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="about-item">
+                            <h4>340+</h4>
+                            <h6>happy clients</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="about-item">
+                            <h4>128+</h4>
+                            <h6>awards</h6>
+                        </div>
+                    </div>
+                </div>
+                <p>Incepted in the year of 2010, we at Khushi Hydromatic are pleased to introduce ourselves as Exporter/stockiest/supplier of Hydraulic Pumps, Hydraulic valve, Hydraulic Vane Pumps, Hydraulic Valves, Yuken Hydraulic Products, etc. In global market, we are recognized as one of the most dependable Hydraulic Valve and Pump Exporters and  Distributor. We work very closely with our international partners to offer the best Brands at most reasonable prices. It is our humble effort to reduce your Purchase costs & also offer Hydraulic equipment & accessories for OEM requirements.</p>
+                <div class="main-green-button"><a href="#products">Discover company</a></div>
             </div>
         </div>
-        <p>Incepted in the year of 2010, we at Khushi Hydromatic are pleased to introduce ourselves as Exporter/stockiest/supplier of Hydraulic Pumps, Hydraulic valve, Hydraulic Vane Pumps, Hydraulic Valves, Yuken Hydraulic Products, etc. In global market, we are recognized as one of the most dependable Hydraulic Valve and Pump Exporters and  Distributor. We work very closely with our international partners to offer the best Brands at most reasonable prices. It is our humble effort to reduce your Purchase costs & also offer Hydraulic equipment & accessories for OEM requirements.</p>
-        <div class="main-green-button"><a href="#products">Discover company</a></div>
-        </div>
-    </div>
     </div>
 </div>
 
@@ -147,7 +147,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
-                <form id="contact" action="" method="post">
+                <form id="contact" class="contactus" action="{{ route('contact') }}" method="post">
+                    @csrf
+
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3">
                             <div class="section-heading">
@@ -157,29 +159,34 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <fieldset>
-                                        <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-6">
-                                    <fieldset>
-                                        <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-6">
-                                    <fieldset>
-                                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-6">
-                                    <fieldset>
-                                        <input type="subject" name="subject" id="subject" placeholder="Subject" autocomplete="on">
+                                        <input type="name" name="name" id="name" placeholder="Name" autocomplete="on">
+                                        <div class="help-block with-errors name"></div>
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12">
                                     <fieldset>
-                                        <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  
+                                        <input type="text" name="email" id="email" placeholder="Your Email" autocomplete="on">
+                                        <div class="help-block with-errors email"></div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <input type="text" name="phone" id="phone" placeholder="Your Phone" autocomplete="on">
+                                        <div class="help-block with-errors phone"></div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <input type="subject" name="subject" id="subject" placeholder="Subject" autocomplete="on">
+                                        <div class="help-block with-errors subject"></div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <textarea type="text" name="message" id="message" class="form-control" placeholder="Message"></textarea>  
+                                        <div class="help-block with-errors message"></div>
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12">
@@ -196,13 +203,13 @@
                                         <div class="icon">
                                             <img src="{{ asset('frontend/assets/images/contact-icon-01.png') }}" alt="email icon">
                                         </div>
-                                        <a href="#">{{_settings('CONTACT_EMAIL')}}</a>
+                                        <a href="#">{{ _settings('CONTACT_EMAIL') }}</a>
                                     </li>
                                     <li>
                                         <div class="icon">
                                             <img src="{{ asset('frontend/assets/images/contact-icon-02.png') }}" alt="phone">
                                         </div>
-                                        <a href="#">{{_settings('MAIN_CONTACT_NUMBER')}}</a>
+                                        <a href="#">{{ _settings('MAIN_CONTACT_NUMBER') }}</a>
                                     </li>
                                     <li>
                                         <div class="icon">
@@ -220,13 +227,13 @@
                                         <div class="icon">
                                             <img src="{{ asset('frontend/assets/images/contact-icon-01.png') }}" alt="email icon">
                                         </div>
-                                        <a href="#">{{_settings('MAIN_CONTACT_EMAIL')}}</a>
+                                        <a href="#">{{ _settings('MAIN_CONTACT_EMAIL') }}</a>
                                     </li>
                                     <li>
                                         <div class="icon">
                                             <img src="{{ asset('frontend/assets/images/contact-icon-02.png') }}" alt="phone">
                                         </div>
-                                        <a href="#">{{_settings('CONTACT_NUMBER')}}</a>
+                                        <a href="#">{{ _settings('CONTACT_NUMBER') }}</a>
                                     </li>
                                     <li>
                                         <div class="icon">
@@ -246,4 +253,39 @@
 @endsection
 
 @section('scripts')
+<script>
+    $(document).ready(function () {
+        var form = $('.contactus');
+        $('.kt-form__help').html('');
+        form.submit(function(e) {
+            e.preventDefault();
+            $('.help-block').html('');
+            $('.m-form__help').html('');
+            $.ajax({
+                url : form.attr('action'),
+                type : form.attr('method'),
+                data : form.serialize(),
+                dataType: 'json',
+                async:false,
+                success : function(response){
+                    if(response.code == 200){
+                        toastr.success(response.message, 'Success');
+                        $(".contactus").trigger("reset");
+                    }else{
+                        toastr.error(response.message, 'Error');
+                    }
+                },
+                error: function(error){
+                    if(error.status === 422) {
+                        var errors_ = error.responseJSON;
+                        $('.kt-form__help').html('');
+                        $.each(errors_.errors, function (key, value) {
+                            $('.'+key).html(value);
+                        });
+                    }
+                }
+            });
+        });
+    });
+</script>
 @endsection

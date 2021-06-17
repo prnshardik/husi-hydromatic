@@ -26,7 +26,9 @@ Route::get('db', function() {
 
 Route::group(['namespace' => 'Front'], function(){
     Route::get('/', 'RootController@index')->name('home');
-    Route::get('/product/{id?}', 'RootController@product')->name('product');
+    Route::get('product/{id?}', 'RootController@product')->name('product');
+
+    Route::post('contact', 'RootController@contact')->name('contact');
 });
 
 Route::group(['middleware' => ['prevent-back-history'], 'prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function(){
@@ -65,6 +67,12 @@ Route::group(['middleware' => ['prevent-back-history'], 'prefix' => 'admin', 'na
             Route::post('products/change-status', 'ProductController@change_status')->name('product.change.status');
             Route::post('product/remove-image', 'ProductController@remove_image')->name('product.remove.image');
         /** products */
+
+        /** contact-us */
+            Route::any('contactus', 'ContactUsController@index')->name('contactus');
+            Route::get('contactus/view/{id?}', 'ContactUsController@view')->name('contactus.view');
+            Route::post('contactus/delete', 'ContactUsController@delete')->name('contactus.delete');
+        /** contact-us */
 
         /** settings */
             Route::get('settings', 'SettingsController@index')->name('settings');

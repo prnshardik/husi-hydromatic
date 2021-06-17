@@ -71,7 +71,7 @@
               $(this).removeClass('active');
           })
           $(this).addClass('active');
-        
+
           var target = this.hash,
           menu = target;
           var target = $(this.hash);

@@ -18,7 +18,7 @@ class CreateProductTable extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('category_id')->nullable()->unsigned();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('inactive');
             $table->timestamps();

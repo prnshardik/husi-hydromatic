@@ -28,3 +28,5 @@
         toastr.error(error, 'error');
     }
 </script>
+
+@yield('scripts')

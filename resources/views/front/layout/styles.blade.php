@@ -7,7 +7,11 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.css') }}">
 <link href="{{ asset('backend/assets/vendors/toastr/toastr.min.css') }}" rel="stylesheet" />
 <style>
-	.error{
+	.with-errors{
 		color:red;
+		font-size: 12px;
+		margin-bottom: 10px;
 	}
 </style>
+
+@yield('styles')

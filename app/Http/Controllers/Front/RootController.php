@@ -4,6 +4,8 @@
 
     use App\Http\Controllers\Controller;
     use Illuminate\Http\Request;
+    use App\Http\Requests\ContactUsRequest;
+    use App\Models\ContactUs;
     use DB;
 
     class RootController extends Controller{
@@ -44,5 +46,25 @@
                             ->first();
 
             return view('front.product', ['product' => $product]);
+        }
+
+        public function contact(ContactUsRequest $request){
+            if(!$request->ajax()){ exit('No direct script access allowed'); }
+
+            $crud = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'subject' => $request->subject,
+                'message' => $request->message,
+                'is_read' => 'n'
+            ];
+
+            $contact = ContactUs::create($crud);
+
+            if($contact)
+                return response()->json(['code' => 200, 'message' => 'Thanks for contact us, we will take actions sortly.']);
+            else
+                return response()->json(['code' => 201, 'message' => 'Something went wrong, please try again later.']);
         }
     }
