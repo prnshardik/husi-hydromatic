@@ -167,7 +167,5 @@
                 'updated_at' => date('Y-m-d H:i:s'),
                 'updated_by' => 1
             ]);
-
-            _setMailConfig();
         }
     }
