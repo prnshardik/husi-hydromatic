@@ -407,14 +407,13 @@
                                         <center>
                                             <a>
                                                 <!-- <img alt="" src="{{ $data['logo'] ?? '' }}" style="height: 50px;width: auto;" /> -->
-                                                <h3 class="custom_title">{{ _settings('SITE_TITLE') }}</h3>
+                                                <h2 class="custom_title">{{ _settings('SITE_TITLE') }}</h2>
                                             </a>
                                         </center>
                                         <br>
                                         <div class="f-fallback">
                                             <h1>Hey, Admin! </h1>
-                                            <p>You have new Quote.</p>
-                                            <p>Please check and take action, you also find this in admin panel.</p>
+                                            <p>You have new Quote.<br/>Please check and take action, you also find this in admin panel.</p>
 
                                             <p>For reference, here's your detail about quote:</p>
                                             <table class="attributes" width="100%" cellpadding="0" cellspacing="0" role="presentation">
@@ -445,9 +444,6 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <div class="wrapper">
-                                                <p>Thank you.</p>
-                                            </div>
                                             <p>Regards,<br> {{ _settings('SITE_TITLE') }}
                                         </div>
                                     </td>

@@ -2,18 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('mail', function() {
-    // $crud = [
-    //     'name' => 'hardik patel',
-    //     'email' => 'hardik@gmail.com',
-    //     'phone' => '9876549874',
-    //     'subject' => 'subject',
-    //     'message' => 'lorem ispum'
-    // ];
-
-    return view('admin.mails.contactus');
-});
-
 Route::get('clear', function() {
     Artisan::call('cache:clear');
     Artisan::call('view:clear');

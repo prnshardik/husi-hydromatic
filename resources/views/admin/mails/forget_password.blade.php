@@ -407,14 +407,13 @@
                                         <center>
                                             <a>
                                                 <!-- <img alt="" src="{{ $data['logo'] ?? '' }}" style="height: 50px;width: auto;" /> -->
-                                                <h3 class="custom_title">{{ _settings('SITE_TITLE') }}</h3>
+                                                <h2 class="custom_title">{{ _settings('SITE_TITLE') }}</h2>
                                             </a>
                                         </center>
                                         <br>
                                         <div class="f-fallback">
                                             <h1>Hey, User! </h1>
-                                            <p>We are recieved reset password request for this email address.</p>
-                                            <p>If you dont made this request, please ignor this.</p>
+                                            <p>We are recieved reset password request for this email address.<br/>If you dont made this request, please ignor this.</p>
 
                                             <p>For reference, here's your reset password link:</p>
                                             <table class="attributes" width="100%" cellpadding="0" cellspacing="0" role="presentation">
@@ -447,9 +446,6 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <div class="wrapper">
-                                                <p>Thank you for being with us.</p>
-                                            </div>
                                             <p>Regards,<br> {{ _settings('SITE_TITLE') }}
                                         </div>
                                     </td>
