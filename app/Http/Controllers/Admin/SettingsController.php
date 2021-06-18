@@ -32,10 +32,7 @@
                     }
                 }
             }
-
-            if($tab == 'smtp')
-                _setMailConfig();
-
+            
             return redirect()->back()->with(['success' => 'Settings updated successfully', 'tab' => $tab]);
         }
     }
