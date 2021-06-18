@@ -6,7 +6,8 @@
     use Illuminate\Http\Request;
     use App\Http\Requests\ContactUsRequest;
     use App\Models\ContactUs;
-    use DB;
+    use App\Mail\ContactUsMail;
+    use DB, Mail;
 
     class RootController extends Controller{
         public function index(){
@@ -62,8 +63,24 @@
 
             $contact = ContactUs::create($crud);
 
-            if($contact)
+            if($contact){
+                $mailData = [   
+                                'email_from_address' => _settings('MAIL_FROM_ADDRESS'), 
+                                'name' => $request->name, 
+                                'email' => $request->email, 
+                                'phone' => $request->phone, 
+                                'subject' => $request->subject, 
+                                'message' => $request->message
+                            ];
+
+                try{
+                    Mail::to(_settings('MAIL_FROM_ADDRESS'))->send(new ContactUsMail($mailData));
+                }catch(\Exception $e){
+                
+                }
+
                 return response()->json(['code' => 200, 'message' => 'Thanks for contact us, we will take actions sortly.']);
+            }
             else
                 return response()->json(['code' => 201, 'message' => 'Something went wrong, please try again later.']);
         }
