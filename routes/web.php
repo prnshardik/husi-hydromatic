@@ -4,14 +4,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('clear', function() {
     Artisan::call('cache:clear');
+    Artisan::call('view:clear');
     Artisan::call('optimize:clear');
     Artisan::call('config:cache');
-    return "Command Successfully";
+    return "Cache cleared successfully";
 });
 
 Route::get('key-generate', function() {
     Artisan::call('key:generate');
-    return "Key Generate Successfully";
+    return "Key generate successfully";
 });
 
 Route::get('migrate', function() {
