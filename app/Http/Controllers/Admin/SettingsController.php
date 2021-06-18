@@ -21,6 +21,7 @@
             unset($data['_token']);
             $tab = $data['tab'];
             unset($data['tab']);
+            session(['tab' => $tab]);
 
             if(!empty($data)){
                 foreach($data as $key => $value){
@@ -31,6 +32,9 @@
                     }
                 }
             }
+
+            if($tab == 'smtp')
+                _setMailConfig();
 
             return redirect()->back()->with(['success' => 'Settings updated successfully', 'tab' => $tab]);
         }

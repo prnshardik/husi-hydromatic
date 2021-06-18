@@ -16,6 +16,7 @@
 
         if(\Session::has('tab'))
             $tab = \Session::get('tab');
+
     @endphp
 
     <div class="page-content fade-in-up">

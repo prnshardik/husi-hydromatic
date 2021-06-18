@@ -100,7 +100,7 @@
 
             Setting::create([
                 'key' => 'MAIL_HOST',
-                'value' => 'mail.khushihydtic.com',
+                'value' => 'mail.cypherocean.com',
                 'type' => 'smtp',
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
@@ -120,7 +120,7 @@
 
             Setting::create([
                 'key' => 'MAIL_USERNAME',
-                'value' => 'export@khushihydtic.com',
+                'value' => 'hardik@cypherocean.com',
                 'type' => 'smtp',
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
@@ -130,7 +130,7 @@
 
             Setting::create([
                 'key' => 'MAIL_PASSWORD',
-                'value' => 'Khushi@hydict.com',
+                'value' => 'icyPhe2!@',
                 'type' => 'smtp',
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
@@ -150,7 +150,7 @@
 
             Setting::create([
                 'key' => 'MAIL_FROM_ADDRESS',
-                'value' => 'export@khushihydtic.com',
+                'value' => 'hardik@cypherocean.com',
                 'type' => 'smtp',
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
@@ -160,12 +160,14 @@
 
             Setting::create([
                 'key' => 'MAIL_FROM_NAME',
-                'value' => 'Khushi Hydtic',
+                'value' => 'Cypheocean',
                 'type' => 'smtp',
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
                 'updated_at' => date('Y-m-d H:i:s'),
                 'updated_by' => 1
             ]);
+
+            _setMailConfig();
         }
     }
